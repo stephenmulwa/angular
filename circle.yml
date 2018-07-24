@@ -1,0 +1,14 @@
+machine:
+  node:
+    version: 8.9.4
+  services:
+   - docker
+
+dependencies:
+  post:
+    - docker build -t app .
+test:
+  post:
+    - docker run -d -p 8080:8080 mulwa-test; sleep 10
+    
+    - curl --retry 10 --retry-delay 5 localhost:8080 | grep "Dont touch"
