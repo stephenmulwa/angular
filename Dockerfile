@@ -5,14 +5,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
 RUN apt-get update -y && apt-get install jq -y
 
 RUN apt-get install git -y
-RUN apt-get install btrfs-tools -y
-RUN apt-get install libreadline-dev -y
 
 #COPY ./angular-circle-ci-test /opt/
 RUN git clone https://github.com/stephenmulwa/angular.git /opt/
 
 
-EXPOSE 8080
+EXPOSE 4200
 
 ENTRYPOINT ["/opt"]
 
